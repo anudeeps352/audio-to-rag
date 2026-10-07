@@ -1,0 +1,38 @@
+# Virtual environments
+.venv/
+venv/
+
+# Python bytecode and tool caches
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Downloaded model caches
+.cache/
+models/
+
+# Local audio inputs and generated pipeline artifacts
+src/audio_samples/*
+!src/audio_samples/.gitkeep
+src/output/*
+!src/output/.gitkeep
+
