@@ -30,9 +30,11 @@ Thumbs.db
 .cache/
 models/
 
+# Local Qdrant database
+data/qdrant/
+
 # Local audio inputs and generated pipeline artifacts
 src/audio_samples/*
 !src/audio_samples/.gitkeep
 src/output/*
 !src/output/.gitkeep
-

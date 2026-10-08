@@ -25,3 +25,4 @@ tqdm==4.70.1
 typing_extensions==4.16.0
 # Dense transcript embeddings (installs PyTorch and Transformers transitively).
 sentence-transformers==6.1.0
+qdrant-client==1.19.1
