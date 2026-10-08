@@ -12,7 +12,13 @@ PROJECT_ROOT = Path(__file__).resolve().parent
 SRC_DIR = PROJECT_ROOT / "src"
 DEFAULT_AUDIO = SRC_DIR / "audio_samples" / "sample.mp3"
 DEFAULT_OUTPUT_DIR = SRC_DIR / "output"
-STAGES = ("transcription", "chunking", "embeddings")
+STAGES = (
+    "transcription",
+    "chunking",
+    "embeddings",
+    "qdrant_setup",
+    "indexing",
+)
 
 
 def build_stage_commands(args: argparse.Namespace) -> dict[str, list[str]]:
@@ -55,6 +61,14 @@ def build_stage_commands(args: argparse.Namespace) -> dict[str, list[str]]:
             args.embedding_model,
             "--batch-size",
             str(args.batch_size),
+        ],
+        "qdrant_setup": [
+            sys.executable,
+            str(SRC_DIR / "indexing" / "qdrant_setup.py"),
+        ],
+        "indexing": [
+            sys.executable,
+            str(SRC_DIR / "indexing" / "index_embeddings.py"),
         ],
     }
 

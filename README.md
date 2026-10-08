@@ -7,6 +7,7 @@ The current pipeline supports:
 1. Audio transcription with Faster Whisper
 2. Adjacent transcript-segment aggregation
 3. Dense chunk embeddings with `BAAI/bge-small-en-v1.5`
+4. Persistent local vector indexing with Qdrant
 
 ## Project layout
 
@@ -16,6 +17,7 @@ src/
   extract/extract.py        audio-to-transcript stage
   chunking/aggregation.py   adjacent chunking stage
   embeddings/               dense embedding stage
+  indexing/                 Qdrant setup and indexing stage
   output/                   generated artifacts (not committed)
 requirements.txt            Python dependencies
 main.py                     end-to-end pipeline runner
@@ -58,6 +60,8 @@ To resume without rerunning transcription, select a later starting stage:
 ```powershell
 python .\main.py --start-at chunking
 python .\main.py --start-at embeddings
+python .\main.py --start-at qdrant_setup
+python .\main.py --start-at indexing
 ```
 
 The stages can also be run individually:
@@ -66,10 +70,14 @@ The stages can also be run individually:
 python .\src\extract\extract.py
 python .\src\chunking\aggregation.py
 python .\src\embeddings\generate_embeddings.py
+python .\src\indexing\qdrant_setup.py
+python .\src\indexing\index_embeddings.py
 ```
 
 Generated transcripts, chunks, and embedding files are written to
 `src/output/`. These artifacts and local audio files are excluded from Git.
+The local Qdrant database is written to `data/qdrant/` and is also excluded
+from Git.
 
 The first embedding run downloads the BGE model from Hugging Face.
 
@@ -89,5 +97,5 @@ weights.
 
 ## Next stage
 
-The next planned step is to store vectors and payload metadata in a local
-vector database and implement query-time retrieval.
+The next planned step is to implement query-time semantic retrieval over the
+indexed transcript chunks.
