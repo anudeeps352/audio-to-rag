@@ -1,6 +1,7 @@
 # Podcast Intelligence RAG
 
-A local pipeline for turning podcast audio into searchable transcript chunks.
+A local pipeline for turning podcast audio into searchable, answerable transcript
+knowledge.
 
 The current pipeline supports:
 
@@ -8,6 +9,9 @@ The current pipeline supports:
 2. Adjacent transcript-segment aggregation
 3. Dense chunk embeddings with `BAAI/bge-small-en-v1.5`
 4. Persistent local vector indexing with Qdrant
+5. Semantic search over timestamped transcript chunks
+6. Local answer generation with Ollama and `qwen3:4b-instruct`
+7. A labeled retrieval benchmark with repeatable dense-search evaluation
 
 ## Project layout
 
@@ -18,7 +22,13 @@ src/
   chunking/aggregation.py   adjacent chunking stage
   embeddings/               dense embedding stage
   indexing/                 Qdrant setup and indexing stage
+  retrieval/search.py       semantic transcript search
+  generation/               local RAG answer generation
+  evaluation/               evaluation code
   output/                   generated artifacts (not committed)
+benchmarks/
+  benchmark.json            labeled retrieval questions
+  results/                  saved experiment reports
 requirements.txt            Python dependencies
 main.py                     end-to-end pipeline runner
 .github/workflows/ci.yml    GitHub Actions checks
@@ -81,6 +91,46 @@ from Git.
 
 The first embedding run downloads the BGE model from Hugging Face.
 
+## Ask questions
+
+After running the ingestion pipeline, ask a question with:
+
+```powershell
+python -m src.generation.generate_answer "Who are the podcast hosts?" --limit 3
+```
+
+This embeds the question, searches Qdrant, builds context from the retrieved
+chunks, and asks the local Ollama model to answer from that context.
+
+To inspect retrieval results without generation:
+
+```powershell
+python -m src.retrieval.search "What's the plot of Man Quest?" --limit 3
+```
+
+## Evaluate retrieval
+
+Run the labeled dense-retrieval benchmark with:
+
+```powershell
+python -m src.evaluation.evaluate_retrieval
+```
+
+The benchmark lives in `benchmarks/benchmark.json`, and the report is saved to
+`benchmarks/results/dense_baseline.json`.
+
+Current dense baseline over 10 answerable questions and one unanswerable
+question:
+
+| Metric | Score |
+|---|---:|
+| Recall@1 | 0.60 |
+| Recall@5 | 0.95 |
+| MRR | 0.753 |
+
+This small single-episode benchmark is a learning and regression baseline, not
+a production-quality accuracy claim.
+
 ## Continuous integration
 
 GitHub Actions runs on every push and pull request. It compiles the Python
@@ -95,7 +145,9 @@ weights.
 - `sample_embedding_metadata.json` maps each `vector_index` back to its chunk
   ID, transcript text, timestamps, and source metadata.
 
-## Next stage
+## Current stage and next step
 
-The next planned step is to implement query-time semantic retrieval over the
-indexed transcript chunks.
+The dense RAG baseline is complete through generation and retrieval evaluation.
+The next planned experiment is BM25 lexical retrieval. It will be evaluated
+against the same benchmark before adding hybrid retrieval with Reciprocal Rank
+Fusion (RRF), followed by reranking and generation evaluation.

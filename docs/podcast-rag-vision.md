@@ -1,5 +1,27 @@
 # Podcast Intelligence RAG
 
+## Current implementation status
+
+The repository currently implements a working single-episode dense RAG
+baseline:
+
+- Faster Whisper transcription
+- adjacent timestamp-aware chunking
+- normalized `BAAI/bge-small-en-v1.5` embeddings
+- persistent local Qdrant indexing with cosine similarity
+- semantic retrieval with a BGE query instruction
+- local answer generation through Ollama using `qwen3:4b-instruct`
+- a labeled retrieval benchmark in `benchmarks/benchmark.json`
+- repeatable dense retrieval evaluation in `src/evaluation/`
+
+The current dense baseline scores Recall@1 `0.60`, Recall@5 `0.95`, and MRR
+`0.753` across 10 answerable benchmark questions. One unanswerable question is
+recorded but excluded from Recall and MRR. This is a small learning baseline,
+not a production-quality measurement.
+
+The next implementation stage is BM25 lexical retrieval, followed by a
+dense-versus-BM25 comparison, hybrid RRF, reranking, and generation evaluation.
+
 ## Overview
 
 A podcast transcription + retrieval system that goes beyond:

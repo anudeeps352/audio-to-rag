@@ -1,5 +1,32 @@
 # RAG Project Guideline
 
+## Current podcast-project checkpoint
+
+The podcast implementation has completed the dense baseline through local
+answer generation and retrieval evaluation:
+
+```text
+audio -> transcript -> adjacent chunks -> BGE embeddings -> Qdrant
+      -> dense retrieval -> Ollama answer generation
+```
+
+Evaluation code lives in `src/evaluation/`. Labeled questions and saved reports
+live separately in `benchmarks/` so source code is not mixed with experiment
+data.
+
+Current dense results:
+
+```text
+Recall@1 = 0.60
+Recall@5 = 0.95
+MRR      = 0.753
+```
+
+These results cover 10 answerable questions from one episode, plus one
+unanswerable test case. The next stage is to implement BM25 and compare it with
+the frozen dense baseline using the same questions. Hybrid RRF, reranking, and
+generation evaluation follow after that comparison.
+
 ## Goal
 
 Build a realistic RAG system starting from a simple customer-support use case, then improve it step by step into a stronger retrieval system.

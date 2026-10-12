@@ -1,0 +1,464 @@
+{
+  "retrieval_method": "dense",
+  "embedding_model": "BAAI/bge-small-en-v1.5",
+  "collection": "podcast_chunks",
+  "retrieval_limit": 5,
+  "benchmark": "benchmarks/benchmark.json",
+  "total_queries": 11,
+  "answerable_queries": 10,
+  "unanswerable_queries": 1,
+  "metrics": {
+    "recall_at_1": 0.6,
+    "recall_at_5": 0.95,
+    "mrr": 0.753333
+  },
+  "query_results": [
+    {
+      "query_id": "q001",
+      "question": "Who introduces themselves as the podcast hosts?",
+      "query_type": "direct_fact",
+      "answerable": true,
+      "relevant_chunk_ids": [
+        1
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": 1,
+          "score": 0.644787
+        },
+        {
+          "rank": 2,
+          "chunk_id": 4,
+          "score": 0.628984
+        },
+        {
+          "rank": 3,
+          "chunk_id": 10,
+          "score": 0.60002
+        },
+        {
+          "rank": 4,
+          "chunk_id": 16,
+          "score": 0.555297
+        },
+        {
+          "rank": 5,
+          "chunk_id": 5,
+          "score": 0.552214
+        }
+      ],
+      "first_relevant_rank": 1,
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "included_in_metrics": true
+    },
+    {
+      "query_id": "q002",
+      "question": "Why did they decide to make the podcast only ten minutes long?",
+      "query_type": "paraphrase",
+      "answerable": true,
+      "relevant_chunk_ids": [
+        4,
+        11
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": 16,
+          "score": 0.723785
+        },
+        {
+          "rank": 2,
+          "chunk_id": 1,
+          "score": 0.698418
+        },
+        {
+          "rank": 3,
+          "chunk_id": 4,
+          "score": 0.642517
+        },
+        {
+          "rank": 4,
+          "chunk_id": 12,
+          "score": 0.642038
+        },
+        {
+          "rank": 5,
+          "chunk_id": 10,
+          "score": 0.6339
+        }
+      ],
+      "first_relevant_rank": 3,
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.5,
+      "reciprocal_rank": 0.333333,
+      "included_in_metrics": true
+    },
+    {
+      "query_id": "q003",
+      "question": "What is the plot of Man Quest?",
+      "query_type": "chunk_boundary",
+      "answerable": true,
+      "relevant_chunk_ids": [
+        7
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": 6,
+          "score": 0.645248
+        },
+        {
+          "rank": 2,
+          "chunk_id": 7,
+          "score": 0.625023
+        },
+        {
+          "rank": 3,
+          "chunk_id": 8,
+          "score": 0.486697
+        },
+        {
+          "rank": 4,
+          "chunk_id": 1,
+          "score": 0.401025
+        },
+        {
+          "rank": 5,
+          "chunk_id": 2,
+          "score": 0.380666
+        }
+      ],
+      "first_relevant_rank": 2,
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.5,
+      "included_in_metrics": true
+    },
+    {
+      "query_id": "q004",
+      "question": "Which actors are mentioned in connection with Man Quest?",
+      "query_type": "exact_entity",
+      "answerable": true,
+      "relevant_chunk_ids": [
+        6
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": 6,
+          "score": 0.625133
+        },
+        {
+          "rank": 2,
+          "chunk_id": 7,
+          "score": 0.610811
+        },
+        {
+          "rank": 3,
+          "chunk_id": 8,
+          "score": 0.471293
+        },
+        {
+          "rank": 4,
+          "chunk_id": 2,
+          "score": 0.46008
+        },
+        {
+          "rank": 5,
+          "chunk_id": 10,
+          "score": 0.389996
+        }
+      ],
+      "first_relevant_rank": 1,
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "included_in_metrics": true
+    },
+    {
+      "query_id": "q005",
+      "question": "Who is supposedly directing Man Quest?",
+      "query_type": "exact_entity",
+      "answerable": true,
+      "relevant_chunk_ids": [
+        7
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": 7,
+          "score": 0.718982
+        },
+        {
+          "rank": 2,
+          "chunk_id": 6,
+          "score": 0.666237
+        },
+        {
+          "rank": 3,
+          "chunk_id": 8,
+          "score": 0.60691
+        },
+        {
+          "rank": 4,
+          "chunk_id": 1,
+          "score": 0.47314
+        },
+        {
+          "rank": 5,
+          "chunk_id": 9,
+          "score": 0.448663
+        }
+      ],
+      "first_relevant_rank": 1,
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "included_in_metrics": true
+    },
+    {
+      "query_id": "q006",
+      "question": "Who is mentioned as the possible female lead in Man Quest?",
+      "query_type": "exact_entity",
+      "answerable": true,
+      "relevant_chunk_ids": [
+        8
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": 8,
+          "score": 0.59037
+        },
+        {
+          "rank": 2,
+          "chunk_id": 7,
+          "score": 0.585275
+        },
+        {
+          "rank": 3,
+          "chunk_id": 6,
+          "score": 0.561177
+        },
+        {
+          "rank": 4,
+          "chunk_id": 2,
+          "score": 0.422136
+        },
+        {
+          "rank": 5,
+          "chunk_id": 5,
+          "score": 0.396127
+        }
+      ],
+      "first_relevant_rank": 1,
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "included_in_metrics": true
+    },
+    {
+      "query_id": "q007",
+      "question": "What role did Brian say he played in The Hangover?",
+      "query_type": "direct_fact",
+      "answerable": true,
+      "relevant_chunk_ids": [
+        9
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": 10,
+          "score": 0.549197
+        },
+        {
+          "rank": 2,
+          "chunk_id": 5,
+          "score": 0.530777
+        },
+        {
+          "rank": 3,
+          "chunk_id": 6,
+          "score": 0.529296
+        },
+        {
+          "rank": 4,
+          "chunk_id": 1,
+          "score": 0.519385
+        },
+        {
+          "rank": 5,
+          "chunk_id": 9,
+          "score": 0.516014
+        }
+      ],
+      "first_relevant_rank": 5,
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.2,
+      "included_in_metrics": true
+    },
+    {
+      "query_id": "q008",
+      "question": "What does Brian want to accomplish with the podcast?",
+      "query_type": "paraphrase",
+      "answerable": true,
+      "relevant_chunk_ids": [
+        10
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": 1,
+          "score": 0.687821
+        },
+        {
+          "rank": 2,
+          "chunk_id": 10,
+          "score": 0.662451
+        },
+        {
+          "rank": 3,
+          "chunk_id": 4,
+          "score": 0.643351
+        },
+        {
+          "rank": 4,
+          "chunk_id": 11,
+          "score": 0.619638
+        },
+        {
+          "rank": 5,
+          "chunk_id": 16,
+          "score": 0.595116
+        }
+      ],
+      "first_relevant_rank": 2,
+      "recall_at_1": 0.0,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.5,
+      "included_in_metrics": true
+    },
+    {
+      "query_id": "q009",
+      "question": "How much do they joke about charging listeners per year?",
+      "query_type": "direct_fact",
+      "answerable": true,
+      "relevant_chunk_ids": [
+        13
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": 13,
+          "score": 0.649842
+        },
+        {
+          "rank": 2,
+          "chunk_id": 4,
+          "score": 0.583413
+        },
+        {
+          "rank": 3,
+          "chunk_id": 16,
+          "score": 0.577237
+        },
+        {
+          "rank": 4,
+          "chunk_id": 10,
+          "score": 0.564766
+        },
+        {
+          "rank": 5,
+          "chunk_id": 1,
+          "score": 0.547131
+        }
+      ],
+      "first_relevant_rank": 1,
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "included_in_metrics": true
+    },
+    {
+      "query_id": "q010",
+      "question": "What expensive car does one host say he purchased?",
+      "query_type": "paraphrase",
+      "answerable": true,
+      "relevant_chunk_ids": [
+        12
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": 12,
+          "score": 0.548165
+        },
+        {
+          "rank": 2,
+          "chunk_id": 13,
+          "score": 0.48979
+        },
+        {
+          "rank": 3,
+          "chunk_id": 9,
+          "score": 0.483452
+        },
+        {
+          "rank": 4,
+          "chunk_id": 6,
+          "score": 0.474138
+        },
+        {
+          "rank": 5,
+          "chunk_id": 7,
+          "score": 0.449024
+        }
+      ],
+      "first_relevant_rank": 1,
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "included_in_metrics": true
+    },
+    {
+      "query_id": "q011",
+      "question": "Where did the podcast hosts attend university?",
+      "query_type": "unanswerable",
+      "answerable": false,
+      "relevant_chunk_ids": [],
+      "retrieved": [
+        {
+          "rank": 1,
+          "chunk_id": 4,
+          "score": 0.564496
+        },
+        {
+          "rank": 2,
+          "chunk_id": 1,
+          "score": 0.531819
+        },
+        {
+          "rank": 3,
+          "chunk_id": 10,
+          "score": 0.52743
+        },
+        {
+          "rank": 4,
+          "chunk_id": 16,
+          "score": 0.517047
+        },
+        {
+          "rank": 5,
+          "chunk_id": 9,
+          "score": 0.488197
+        }
+      ],
+      "first_relevant_rank": null,
+      "included_in_metrics": false
+    }
+  ]
+}

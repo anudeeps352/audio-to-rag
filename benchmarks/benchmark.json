@@ -1,0 +1,115 @@
+{
+  "benchmark_version": 1,
+  "corpus": "sample.mp3",
+  "queries": [
+    {
+      "id": "q001",
+      "question": "Who introduces themselves as the podcast hosts?",
+      "query_type": "direct_fact",
+      "answerable": true,
+      "relevant_chunk_ids": [
+        1
+      ],
+      "notes": "Chunk 1 contains the introductions of Will Sasso, Chris Delia, and Brian Callan."
+    },
+    {
+      "id": "q002",
+      "question": "Why did they decide to make the podcast only ten minutes long?",
+      "query_type": "paraphrase",
+      "answerable": true,
+      "relevant_chunk_ids": [
+        4,
+        11
+      ],
+      "notes": "Chunk 4 gives the main explanation that other podcasts are too long and that ten minutes is short and sweet. Chunk 11 reinforces the complaint about long podcasts."
+    },
+    {
+      "id": "q003",
+      "question": "What is the plot of Man Quest?",
+      "query_type": "chunk_boundary",
+      "answerable": true,
+      "relevant_chunk_ids": [
+        7
+      ],
+      "notes": "Chunk 6 contains the question, but chunk 7 contains the plot description and is the correct answer evidence."
+    },
+    {
+      "id": "q004",
+      "question": "Which actors are mentioned in connection with Man Quest?",
+      "query_type": "exact_entity",
+      "answerable": true,
+      "relevant_chunk_ids": [
+        6
+      ],
+      "notes": "Chunk 6 mentions Jean-Claude Van Damme, Bradley Cooper, and Samuel Jackson in the Man Quest discussion."
+    },
+    {
+      "id": "q005",
+      "question": "Who is supposedly directing Man Quest?",
+      "query_type": "exact_entity",
+      "answerable": true,
+      "relevant_chunk_ids": [
+        7
+      ],
+      "notes": "Chunk 7 mentions Todd Phillips and Paul Thomas Anderson as the supposed co-directors."
+    },
+    {
+      "id": "q006",
+      "question": "Who is mentioned as the possible female lead in Man Quest?",
+      "query_type": "exact_entity",
+      "answerable": true,
+      "relevant_chunk_ids": [
+        8
+      ],
+      "notes": "Chunk 8 contains a noisy transcription of Michelle Monaghan as the possible female lead."
+    },
+    {
+      "id": "q007",
+      "question": "What role did Brian say he played in The Hangover?",
+      "query_type": "direct_fact",
+      "answerable": true,
+      "relevant_chunk_ids": [
+        9
+      ],
+      "notes": "Chunk 9 says he played Eddie, the wedding chapel owner."
+    },
+    {
+      "id": "q008",
+      "question": "What does Brian want to accomplish with the podcast?",
+      "query_type": "paraphrase",
+      "answerable": true,
+      "relevant_chunk_ids": [
+        10
+      ],
+      "notes": "Chunk 10 says that he wants to make people laugh."
+    },
+    {
+      "id": "q009",
+      "question": "How much do they joke about charging listeners per year?",
+      "query_type": "direct_fact",
+      "answerable": true,
+      "relevant_chunk_ids": [
+        13
+      ],
+      "notes": "Chunk 13 contains the joke about charging one thousand dollars per year."
+    },
+    {
+      "id": "q010",
+      "question": "What expensive car does one host say he purchased?",
+      "query_type": "paraphrase",
+      "answerable": true,
+      "relevant_chunk_ids": [
+        12
+      ],
+      "notes": "Chunk 12 says that he bought an Audi R8."
+    },
+    {
+      "id": "q011",
+      "question": "Where did the podcast hosts attend university?",
+      "query_type": "unanswerable",
+      "answerable": false,
+      "relevant_chunk_ids": [],
+      "notes": "The transcript does not contain information about where the hosts attended university."
+    }
+  ]
+}
